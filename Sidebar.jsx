@@ -10,14 +10,14 @@ const StyledSidebar = styled.aside`
     props.open === false
       ? css`
           width: 8rem;
-          /* background-color: blue; */
+          /* background-color: #09092d; */
           transition: 1s;
           background-color: var(--color-grey-0);
         `
       : css`
           background-color: var(--color-grey-0);
           /* background-color: red; */
-          /* transition: 1s */
+          transition: 0.5s;
           padding: 3.2rem 2.4rem;
           border-right: 1px solid var(--color-grey-100);
           grid-row: 1/ -1;
@@ -39,10 +39,10 @@ const SpanStyleClose = styled.span`
 const SpanStyleRight = styled.span`
   cursor: pointer;
   display: flex;
-  padding-bottom: 40px;
+  padding-bottom: 10px;
   padding-top: 20px;
   justify-content: center;
-  font-size: 3rem;
+  font-size: 4rem;
 `;
 
 function Sidebar() {

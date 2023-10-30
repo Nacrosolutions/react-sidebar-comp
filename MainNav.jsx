@@ -15,6 +15,22 @@ const NavList = styled.ul`
   gap: 0.8rem;
 `;
 
+const HideElementDiv = styled.div`
+  margin-left: 40px;
+  margin-top: -8px;
+  position: absolute;
+  background-color: var(--color-brand-100);
+  color: black;
+  font-size: small;
+  border-radius: 4px;
+  letter-spacing: 1px;
+  font-size: 11px;
+  font-weight: lighter;
+
+  /* &:hover {
+    display: none;
+  } */
+`;
 const StyledNavLink = styled(NavLink)`
   &:link,
   &:visited {
@@ -51,8 +67,20 @@ const StyledNavLink = styled(NavLink)`
   &.active:link svg,
   &.active:visited svg {
     color: var(--color-brand-600);
+
+    /* color: greenyellow; */
+  }
+  & > div {
+    display: none;
+    /* background-color: red; */
+  }
+
+  &:hover > div {
+    display: block;
+    /* background-color: red; */
   }
 `;
+
 // open
 // eslint-disable-next-line react/prop-types
 function MainNav({ open }) {
@@ -67,28 +95,29 @@ function MainNav({ open }) {
           </li> */}
           {navOpen === false ? (
             <li>
-              <StyledNavLink to="/dashboard">
-                <HiOutlineHome />
-                {open && <span>Home</span>}{" "}
-              </StyledNavLink>
+              <div>
+                <StyledNavLink to="/dashboard">
+                  <HiOutlineHome />
+                  <HideElementDiv>Home</HideElementDiv>
+                </StyledNavLink>
+              </div>
               <StyledNavLink to="/bookings">
                 <HiOutlineCalendarDays></HiOutlineCalendarDays>
-                {open && <span>Bookings</span>}
+                <HideElementDiv>Bookings</HideElementDiv>
               </StyledNavLink>
-
               <StyledNavLink to="/cabins">
                 <HiOutlineHomeModern></HiOutlineHomeModern>
-                {open && <span>Cabins</span>}
+                <HideElementDiv>Cabins</HideElementDiv>
               </StyledNavLink>
 
               <StyledNavLink to="/users">
                 <HiOutlineUsers></HiOutlineUsers>
-                {open && <span>Users</span>}
+                <HideElementDiv>Users</HideElementDiv>
               </StyledNavLink>
 
               <StyledNavLink to="/settings">
                 <HiOutlineCog6Tooth></HiOutlineCog6Tooth>
-                {open && <span>Settings</span>}
+                <HideElementDiv>Settings</HideElementDiv>
               </StyledNavLink>
             </li>
           ) : (
